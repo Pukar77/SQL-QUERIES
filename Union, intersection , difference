@@ -1,0 +1,58 @@
+-- -Create two table DEmployee(eid,ename,salary and MEmployee(eid,ename,salary)
+--1 Insert five records to each table.
+--2. Find Union Operation
+--3. Find Itersection Operation
+--4.  Find difference Operation
+--5. Find Cartesian product operation
+
+
+
+DROP TABLE Demployee;
+
+CREATE table Demployee(
+eid NUMBER PRIMARY KEY,
+ename VARCHAR2(20),
+salary NUMBER
+constraint sal_check check (salary BETWEEN 20000 and 500000)
+);
+
+INSERT into Demployee values(100,'Pukar',500000);
+INSERT into Demployee values(101,'Ramhari',100000);
+INSERT into Demployee values(102,'Utsarga',5000);
+INSERT into Demployee values(103,'Attulya',50000);
+INSERT into Demployee values(104,'krishna',15000);
+INSERT into Demployee values(105,'Hari',35000);
+
+
+SELECT * from Demployee;
+
+create table Memployee(
+eid number primary key,
+ename VARCHAR2(10),
+salary number,
+CONSTRAINT msal_check check (salary BETWEEN 2000 and 100000)
+);
+
+
+INSERT into Memployee values(100,'Pukar',500000);
+INSERT into Memployee values(101,'Ram',50000);
+INSERT into Memployee values(102,'Shyam',5000);
+INSERT into Memployee values(103,'Hari',3000);
+INSERT into Memployee values(104,'krishna',7000);
+INSERT into Memployee values(100,'Pukar',5000);
+
+SELECT * from Memployee;
+
+
+--cartisan product nikalxa
+SELECT * from Demployee cross join MEMPLOYEE;
+
+
+--union
+SELECT * from Demployee union SELECT * from MEMPLOYEE;
+
+--minus
+SELECT * from Demployee minus SELECT * from MEMPLOYEE;
+
+--intersect
+SELECT * from Demployee INTERSECT SELECT * from Memployee;
