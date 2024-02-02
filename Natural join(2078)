@@ -1,0 +1,70 @@
+-- Consider the following database, where primary keys are underlined
+--student (SID, SName, semester)
+--studies (SID, CID)
+--course (CID, CName, CCode)
+--Construct the following relational algebra and SQL queries for this database.(10)
+--(a) Find the names of all students in third semester.
+--(b) Find the names of all courses studied by Ram.
+--(c) Find the total number of students who study DBMS.
+    --b) What is constraint? How does SQL allow implementation of general integrity constraints?
+
+
+    drop table student;
+
+    create table student(
+        sid number PRIMARY KEY,
+        sname VARCHAR2(10),
+        semester VARCHAR2(10)
+    );
+
+    INSERT into student values(100, 'Ram', 'first');
+    INSERT into student values(101, 'Krishna', 'Second');
+    INSERT into student values(102, 'Shyam', 'Third');
+    INSERT into student values(103, 'Hari', 'Fourth');
+
+    SELECT * from STUDENT where SEMESTER= 'Third';
+    
+    drop table studies;
+
+    CREATE table studies(
+        sid number,
+        cid NUMBER,
+        PRIMARY key(sid,cid)
+    );
+
+    INSERT into studies values(100, 300);
+    INSERT into studies values(101, 301);
+    INSERT into studies values(102, 302);
+    INSERT into studies values(103, 303);
+
+    SELECT * from studies;
+
+drop table course;
+
+    create table course(
+        cid number primary KEY,
+        cname VARCHAR2(10),
+        ccode number
+
+    );
+
+    INSERT into course values(300, 'Math', 200);
+    INSERT into course values(301, 'Physic', 201);
+    INSERT into course values(302, 'Physic', 202);
+    INSERT into course values(303, 'Biology', 203);
+
+    select cname from course NATURAL JOIN studies NATURAL JOIN student where sname = 'Ram';
+
+
+
+     SELECT count (cid) from course WHERE cname = 'Physic';
+
+
+
+
+
+
+
+
+
+
