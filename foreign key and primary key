@@ -1,0 +1,45 @@
+
+
+drop table department;
+
+create table department(
+    dept_no number PRIMARY KEY,
+    d_name VARCHAR2(10),
+    city VARCHAR2(10)
+);
+
+insert into department values(100, 'physic', 'ktm');
+
+drop table employee;
+
+create table employee(
+    emp_id number PRIMARY KEY,
+    ename VARCHAR2(10),
+    salary number
+);
+
+insert into employee values(200,'Attulya', 20000);
+insert into employee values(201,'Maharjan', 40000);
+insert into employee values(202,'Binary', 200000);
+insert into employee values(203,'Ram', 30000);
+
+SELECT ename from employee;
+
+SELECT ename from EMPLOYEE where salary BETWEEN 20000 AND 100000;
+
+SELECT d_name from department NATURAL JOIN EMPLOYEE NATURAL JOIN works where ename='Binary'; 
+
+select * from employee NATURAL join works;
+
+
+drop table works;
+
+
+
+create table works(
+    dept_no number,
+    emp_id number,
+    FOREIGN KEY(dept_no) REFERENCES department(dept_no)
+);
+
+insert into works values(100,200);
