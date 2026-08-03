@@ -1,0 +1,20 @@
+def get_top_5_rows():
+    conn = get_connection()
+    print(True if conn else False)
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT *
+        FROM SA_SALES_INVOICE
+        WHERE ROWNUM <= 10
+    """)
+
+    rows = cursor.fetchall()
+    print(rows)
+
+    cursor.close()
+    conn.close()
+
+    return rows
+
+get_top_5_rows()
