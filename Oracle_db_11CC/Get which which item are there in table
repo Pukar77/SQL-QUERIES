@@ -1,0 +1,9 @@
+SELECT DISTINCT COMPANY_CODE FROM SA_SALES_INVOICE;
+
+
+//we use distinct key word for it, the answer comes likes this
+
+
+company_code
+01
+02
