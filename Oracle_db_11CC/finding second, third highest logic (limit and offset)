@@ -1,0 +1,11 @@
+#This will return the third highest number 
+select total_price from table1 order by total_price desc limit 1 offset 2
+
+#But there is a problem. for example in our dataset there is rows like
+90000,90000,40000,20000
+
+Then this concept will fail as it will return the 40000, but logically it should have returned 20000
+
+so in order to solve this problem we use the distinct concept
+
+select distinct total_price from table1 order by total_price desc limit 1 offset 2
