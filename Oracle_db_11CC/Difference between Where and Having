@@ -1,0 +1,3 @@
+select sales_date,total_price from sa_sales_invoice where total_price > '100000';
+
+select sales_date, sum(total_price) as total_price from sa_sales_invoice group by sales_date having sum(total_price)>'20000' order by total_price desc 
