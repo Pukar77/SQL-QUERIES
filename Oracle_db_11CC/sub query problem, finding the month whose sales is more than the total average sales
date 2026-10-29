@@ -1,0 +1,1 @@
+select trunc(sales_date, 'MM'), avg(total_price) from janta8283.sa_sales_invoice group by trunc(sales_date, 'MM') having avg(total_price) > (select avg(total_price) from sa_sales_invoice); 
